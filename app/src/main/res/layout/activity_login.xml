@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:background="@color/grey">
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+        android:id="@+id/Login_Email_Edtx_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email or Phone number"
+        app:boxBackgroundMode="outline"
+        android:paddingHorizontal="20dp"
+        app:boxCornerRadiusBottomEnd="5dp"
+        app:boxCornerRadiusBottomStart="5dp"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
+        android:textColorHint="@color/white_grey"
+        app:boxStrokeColor="@color/edtx_stroke_color"
+        app:boxStrokeWidthFocused="2dp"
+        app:boxStrokeWidth="2dp"
+        app:hintTextColor="@color/white_grey"
+        android:layout_marginTop="60dp"
+        app:helperTextEnabled="true"
+        app:errorEnabled="true"
+        app:helperTextTextColor="@color/red"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Login_Email_Edtx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:inputType="textEmailAddress"
+            />
+
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        style="@style/ThemeOverlay.Material3.TextInputEditText.OutlinedBox"
+        android:id="@+id/Login_Pass_Edtx_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        app:boxBackgroundMode="outline"
+        android:paddingHorizontal="20dp"
+        app:boxCornerRadiusBottomEnd="5dp"
+        app:boxCornerRadiusBottomStart="5dp"
+        app:boxCornerRadiusTopEnd="5dp"
+        app:boxCornerRadiusTopStart="5dp"
+        android:textColorHint="@color/white_grey"
+        app:boxStrokeColor="@color/edtx_stroke_color"
+        app:boxStrokeWidthFocused="2dp"
+        app:boxStrokeWidth="2dp"
+        app:hintTextColor="@color/white_grey"
+        android:layout_marginTop="15dp"
+        android:layout_below="@id/Login_Email_Edtx_layout"
+        app:helperTextEnabled="true"
+        app:errorEnabled="true"
+        app:helperTextTextColor="@color/red"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Login_Pass_Edtx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:inputType="textPassword"/>
+
+
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Login_login_Btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="140dp"
+        android:height="40dp"
+        android:background="@drawable/btn_login_style"
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@id/Login_Pass_Edtx_layout"
+         />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/Login_login_Btn"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Not registred? "
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/white_grey"/>
+        <TextView
+            android:id="@+id/Login_Register_Btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Register a new account"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:clickable="true"/>
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>
