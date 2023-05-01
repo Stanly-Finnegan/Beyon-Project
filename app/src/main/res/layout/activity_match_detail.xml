@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MatchDetailActivity"
+    android:background="@color/grey"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/detail_match_img"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:src="@drawable/londonstadium"/>
+
+    <TextView
+        android:id="@+id/detail_match_capacity"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:text="London Stadium"
+        android:gravity="center_vertical"
+        android:paddingLeft="10dp"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:background="@drawable/matchdetail_background"
+        android:layout_marginTop="180dp"/>
+
+    <TextView
+        android:id="@+id/detail_match_judul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Premiere League"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_below="@id/detail_match_img"/>
+
+    <TextView
+        android:id="@+id/detail_match_tempat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_match_judul"
+        android:text="London Stadium, London, United Kingdom"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:id="@+id/detail_match_tanggal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="07 Apr 2023, 18:00 WIB"
+        android:textColor="@color/white"
+        android:layout_below="@id/detail_match_tempat"
+        android:layout_marginTop="10dp"
+        />
+
+    <LinearLayout
+        android:id="@+id/detail_match_VS_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_match_tanggal"
+        android:orientation="horizontal"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:id="@+id/detail_match_text_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manchester United"
+            android:autoSizeMaxTextSize="18sp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            />
+
+        <ImageView
+            android:id="@+id/detail_match_img_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_mu"
+            android:layout_marginHorizontal="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VS"
+            android:paddingHorizontal="5dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+
+        <ImageView
+            android:id="@+id/detail_match_img_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_rm"
+            android:layout_marginHorizontal="10dp"/>
+
+        <TextView
+            android:id="@+id/detail_match_text_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Real Madrid"
+            android:textColor="@color/white"
+            android:autoSizeMaxTextSize="18sp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/detail_match_buy_Btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginTop="140dp"
+        android:height="40dp"
+        android:background="@drawable/btn_login_style"
+        android:text="Buy now"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_below="@id/detail_match_VS_layout"
+        />
+
+
+
+
+</RelativeLayout>

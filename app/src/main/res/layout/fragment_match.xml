@@ -3,15 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MatchFragment">
+    tools:context=".MatchFragment"
+    android:background="@color/grey">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/match_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Match"
-        android:textSize="30sp"
-        android:gravity="center"
-        />
+        android:clickable="true"
+        tools:listitem="@layout/match_model"/>
 
 </FrameLayout>

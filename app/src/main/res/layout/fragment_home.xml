@@ -5,12 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/news_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Home"
-        android:textSize="30sp"
-        android:gravity="center"/>
+        tools:listitem="@layout/news_model"/>
 
 </FrameLayout>

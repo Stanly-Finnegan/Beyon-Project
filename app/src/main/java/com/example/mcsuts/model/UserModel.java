@@ -8,11 +8,14 @@ public class UserModel {
 
     }
 
-    public UserModel(String name, String email, String phone, String pass) {
+
+
+    public UserModel(int id,String name, String email, String phone, String pass) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.phone = phone;
-        this.id = id;
+        this.pass = pass;
     }
 
     public int getId() {

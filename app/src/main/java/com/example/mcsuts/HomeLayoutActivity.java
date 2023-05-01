@@ -3,8 +3,10 @@ package com.example.mcsuts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -18,6 +20,8 @@ public class HomeLayoutActivity extends AppCompatActivity {
     MatchFragment matchFragment = new MatchFragment();
     HomeFragment homeFragment = new HomeFragment();
 
+    Integer loginID;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,10 +29,17 @@ public class HomeLayoutActivity extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
+        Intent getIntent = getIntent();
 
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, homeFragment).commit();
+        int bNav  = getIntent.getIntExtra("bottomNav", 0);
+         if(bNav == 1){
+             getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, transFragment).commit();
+         }
+         else {
+             getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, homeFragment).commit();
+         }
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override

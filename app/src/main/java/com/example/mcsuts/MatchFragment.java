@@ -1,64 +1,83 @@
 package com.example.mcsuts;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link MatchFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.example.mcsuts.adapter.MatchAdapter;
+import com.example.mcsuts.model.MatchModel;
+import com.example.mcsuts.model.TransactionModel;
+
+import java.util.ArrayList;
+
+
 public class MatchFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    RecyclerView recyclerView;
+    MatchAdapter matchAdapter;
+    RecyclerView.LayoutManager layoutManager;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    ArrayList<MatchModel> matchModels = new ArrayList<>();
 
-    public MatchFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment MatchFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static MatchFragment newInstance(String param1, String param2) {
-        MatchFragment fragment = new MatchFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
+    static  ArrayList<TransactionModel> transactionModels;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_match, container, false);
+        View view = inflater.inflate(R.layout.fragment_match, container, false);
+        recyclerView = (RecyclerView) view.findViewById(R.id.match_recycler);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(getActivity());
+
+
+       if(matchModels.isEmpty()){
+           for (int i=0; i< MatchData.judul.length; i++){
+               matchModels.add(new MatchModel(
+                       MatchData.judul[i],
+                       MatchData.textleft[i],
+                       MatchData.textright[i],
+                       MatchData.tanggal[i],
+                       MatchData.imgleft[i],
+                       MatchData.imgright[i],
+                       MatchData.tempat[i],
+                       MatchData.imgtempat[i],
+                       MatchData.capacity[i]
+               ));
+           }
+       }
+
+
+
+        matchAdapter = new MatchAdapter(matchModels);
+        recyclerView.setAdapter(matchAdapter);
+        recyclerView.setLayoutManager(layoutManager);
+
+        matchAdapter.setOnItemClickCallBack(new MatchAdapter.OnItemClickCallBack() {
+            @Override
+            public void onItemClicked(MatchModel matchModel) {
+                Intent transactionIntent = new Intent(view.getContext(), MatchDetailActivity.class);
+                transactionIntent.putExtra("Xjudul", matchModel.getJudul());
+                transactionIntent.putExtra("XtextLeft", matchModel.getTextLeft());
+                transactionIntent.putExtra("XtextRight", matchModel.getTextRight());
+                transactionIntent.putExtra("Xtanggal", matchModel.getTanggal());
+                transactionIntent.putExtra("XimgLeft", matchModel.getImgLeft());
+                transactionIntent.putExtra("XimgRight", matchModel.getImgRight());
+                transactionIntent.putExtra("Xtempat", matchModel.getTempat());
+                transactionIntent.putExtra("XimgTempat", matchModel.getImgTempat());
+                transactionIntent.putExtra("Xcapacity", matchModel.getCapacity());
+
+                startActivity(transactionIntent);
+            }
+        });
+
+
+        return view;
     }
 }

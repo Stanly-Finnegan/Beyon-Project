@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.mcsuts.adapter.DatabaseAdapter;
-
 public class LandingActivity extends AppCompatActivity {
     Button Landing_Login_btn, Landing_Register_btn;
     TextView Landing_Regis_btn;

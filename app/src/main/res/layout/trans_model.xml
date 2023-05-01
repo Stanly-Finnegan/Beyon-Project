@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/grey"
+    android:padding="15dp">
+
+    <TextView
+        android:id="@+id/trans_judul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nama lomba"
+        android:textSize="22sp"
+        android:textColor="@color/white"/>
+
+
+    <LinearLayout
+        android:id="@+id/trans_VS_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/trans_judul"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+
+        >
+
+        <TextView
+            android:id="@+id/trans_text_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manchester United"
+            android:autoSizeMaxTextSize="18sp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            />
+
+        <ImageView
+            android:id="@+id/trans_img_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_mu"
+            android:layout_marginHorizontal="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VS"
+            android:paddingHorizontal="5dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+
+        <ImageView
+            android:id="@+id/trans_img_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_rm"
+            android:layout_marginHorizontal="10dp"/>
+
+        <TextView
+            android:id="@+id/trans_text_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Real Madrid"
+            android:textColor="@color/white"
+            android:autoSizeMaxTextSize="18sp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/trans_tanggal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="07 Apr 2023, 18:00 WIB"
+            android:textColor="@color/white"
+            android:layout_below="@id/trans_VS_layout"
+            android:gravity="center"
+            />
+
+    <TextView
+        android:id="@+id/trans_tempat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:text="London Stadium"
+        android:layout_below="@id/trans_tanggal"
+        android:textSize="16sp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/white"/>
+
+    <RelativeLayout
+        android:id="@+id/trans_bollean_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/trans_tempat"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/match_background"
+        android:paddingBottom="20dp"
+        >
+
+
+        <TextView
+            android:id="@+id/trans_boolean"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Transaction Success"
+            android:textSize="16sp"
+            android:layout_toLeftOf="@id/trans_boolean_img"
+            android:textColor="@color/white"/>
+        <ImageView
+            android:id="@+id/trans_boolean_img"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/check"/>
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

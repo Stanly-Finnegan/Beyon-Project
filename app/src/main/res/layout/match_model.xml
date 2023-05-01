@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/grey"
+    android:padding="15dp"
+    >
+
+    <TextView
+        android:id="@+id/match_judul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nama lomba"
+        android:textSize="22sp"
+        android:textColor="@color/white"/>
+
+
+    <LinearLayout
+        android:id="@+id/match_VS_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/match_judul"
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:id="@+id/match_text_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manchester United"
+            android:autoSizeMaxTextSize="18sp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            />
+
+        <ImageView
+            android:id="@+id/match_img_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_mu"
+            android:layout_marginHorizontal="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VS"
+            android:paddingHorizontal="5dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"/>
+
+        <ImageView
+            android:id="@+id/match_img_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_rm"
+            android:layout_marginHorizontal="10dp"/>
+
+        <TextView
+            android:id="@+id/match_text_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Real Madrid"
+            android:textColor="@color/white"
+            android:autoSizeMaxTextSize="18sp"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/match_tanggal_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/match_VS_layout"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:paddingBottom="20dp"
+        android:background="@drawable/match_background">
+
+        <TextView
+            android:id="@+id/match_tanggal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="07 Apr 2023, 18:00 WIB"
+            android:textColor="@color/white"
+            />
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

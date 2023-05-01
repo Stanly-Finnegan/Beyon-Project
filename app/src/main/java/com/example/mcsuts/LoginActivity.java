@@ -3,34 +3,36 @@ package com.example.mcsuts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.mcsuts.adapter.DatabaseAdapter;
+import com.example.mcsuts.helper.UserDatabaseHelper;
 import com.example.mcsuts.model.UserModel;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.List;
 import java.util.Vector;
 
 public class LoginActivity extends AppCompatActivity {
 
     TextView register;
 
-    TextInputEditText email, pass, phone;
+    TextInputEditText email, pass;
 
     Button login;
 
-    private DatabaseAdapter dbAdapter;
+    UserDatabaseHelper dbHelper = new UserDatabaseHelper(this);
 
 
     TextInputLayout textInputLayoutEmail, textInputLayoutPass;
 
+    static  List<UserModel> user;
+
+    public static int loginId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +51,6 @@ public class LoginActivity extends AppCompatActivity {
         textInputLayoutPass = findViewById(R.id.Login_Pass_Edtx_layout);
 
 
-        Intent getIntent = getIntent();
-        int id = getIntent.getIntExtra("idcount",0);
 
 
         register.setOnClickListener((e) ->{
@@ -62,25 +62,28 @@ public class LoginActivity extends AppCompatActivity {
             String tempEmail = email.getText().toString();
             String tempPass = pass.getText().toString();
 
+
             if(!TextUtils.isEmpty(tempEmail) || !TextUtils.isEmpty(tempPass)){
 
-                Vector<UserModel> user = dbAdapter.getUserData();
+                 user = dbHelper.getAllUser();
 
-                for(int i=0; i<id; i++){
-                    if(tempEmail.equals(user.get(1).getEmail()) || tempEmail.equals(user.get(1).getPhone())){
-                        Intent loginIntent = new Intent(this.getBaseContext(), HomeLayoutActivity.class);
-                        startActivity(loginIntent);
-                        return;
+                for(UserModel userModel: user){
+                    if(tempEmail.toLowerCase().equals(userModel.getEmail()) || tempEmail.equals(userModel.getPhone())){
+                        if(tempPass.equals(userModel.getPass())){
+                            Intent loginIntent = new Intent(this.getBaseContext(), HomeLayoutActivity.class);
+                            loginId = userModel.getId();
+                            startActivity(loginIntent);
+                            return;
+                        }
                     }
+
+
+
                 }
+
 
             }
 
-
-
-
-
-            Toast.makeText(this, "A"+id, Toast.LENGTH_SHORT).show();
 
 
             textInputLayoutEmail.setHelperText("Check your email or phone number!");
