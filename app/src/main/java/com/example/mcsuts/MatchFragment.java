@@ -62,7 +62,7 @@ public class MatchFragment extends Fragment {
         matchAdapter.setOnItemClickCallBack(new MatchAdapter.OnItemClickCallBack() {
             @Override
             public void onItemClicked(MatchModel matchModel) {
-                Intent transactionIntent = new Intent(view.getContext(), MatchDetailActivity.class);
+                Intent transactionIntent = new Intent(getContext(), MatchDetailActivity.class);
                 transactionIntent.putExtra("Xjudul", matchModel.getJudul());
                 transactionIntent.putExtra("XtextLeft", matchModel.getTextLeft());
                 transactionIntent.putExtra("XtextRight", matchModel.getTextRight());
